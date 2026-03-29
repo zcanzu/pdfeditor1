@@ -25,7 +25,7 @@
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js" integrity="sha384-weMABwrltA6jWR8DDe9Jp5blk+tZQh7ugpCsF3JwSA53WZM9/14PjS5LAJNHNjAI" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js" integrity="sha384-2p6U+1mmqF10USehFeRiyG2ESG9FwIqN+jxULn5w9jjQIihSn9Pt13dVCn/Hawjn" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js" integrity="sha384-GJqSu7vueQ9qN0E9yLPb3Wtpd7OrgK8KmYzC8T1IysG1bcvxvIO4qtYR/D3A991F" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
@@ -1329,6 +1329,22 @@ function escapeHTML(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
+}
+
+// [Security] Sanitize HTML: remove script tags, event handlers, and dangerous elements
+function sanitizeHTML(html) {
+    // Remove <script> tags and contents
+    html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+    // Remove event handlers (onclick, onerror, onload, etc.)
+    html = html.replace(/\son\w+\s*=\s*["'][^"']*["']/gi, '');
+    html = html.replace(/\son\w+\s*=\s*[^\s>]*/gi, '');
+    // Remove javascript: URLs
+    html = html.replace(/href\s*=\s*["']javascript:[^"']*["']/gi, 'href="#"');
+    html = html.replace(/src\s*=\s*["']javascript:[^"']*["']/gi, 'src=""');
+    // Remove <iframe>, <object>, <embed>, <form>, <meta> tags
+    html = html.replace(/<(iframe|object|embed|form|meta|link\s+rel=['"]import)[\s\S]*?(<\/\1>|\/>)/gi, '');
+    html = html.replace(/<(iframe|object|embed|form|meta)[^>]*>/gi, '');
+    return html;
 }
 
 // =============================================
@@ -2691,7 +2707,7 @@ function buildHtml2Pdf(container) {
             '<button id="btn_h2p_preview" class="flex-1 py-2.5 rounded-xl border-2 border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 font-semibold text-sm hover:border-gray-300" onclick="html2pdfPreview()">' + t('btnPreviewHtml') + '</button>' +
         '</div>' +
         '<div id="html2pdfPreviewWrap" class="hidden mt-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden" style="height:400px;">' +
-            '<iframe id="html2pdfIframe" class="w-full h-full border-0"></iframe>' +
+            '<iframe id="html2pdfIframe" class="w-full h-full border-0" sandbox="allow-same-origin"></iframe>' +
         '</div>' +
         '<div id="html2pdfProgress" class="hidden mt-4"><div class="h-1.5 bg-gray-200 rounded-full overflow-hidden"><div id="html2pdfBar" class="progress-fill h-full bg-gradient-to-r from-navy-500 to-brand-500 rounded-full" style="width:0%"></div></div><p id="html2pdfPtext" class="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center"></p></div>' +
         actionBtnHTML('btn_h2p', t('btnConvertHtml'));
@@ -2718,7 +2734,7 @@ function buildHtml2Pdf(container) {
             document.body.appendChild(iframe);
             var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
             iframeDoc.open();
-            iframeDoc.write('<!DOCTYPE html><html><head><style>body{margin:20px;font-family:Arial,sans-serif;}</style></head><body>' + html + '</body></html>');
+            iframeDoc.write('<!DOCTYPE html><html><head><style>body{margin:20px;font-family:Arial,sans-serif;}</style></head><body>' + sanitizeHTML(html) + '</body></html>');
             iframeDoc.close();
             // Wait for content to render
             await new Promise(function(r) { setTimeout(r, 500); });
@@ -2774,7 +2790,7 @@ window.html2pdfPreview = function() {
     var iframe = document.getElementById('html2pdfIframe');
     var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
     iframeDoc.open();
-    iframeDoc.write('<!DOCTYPE html><html><head><style>body{margin:20px;font-family:Arial,sans-serif;}</style></head><body>' + html + '</body></html>');
+    iframeDoc.write('<!DOCTYPE html><html><head><style>body{margin:20px;font-family:Arial,sans-serif;}</style></head><body>' + sanitizeHTML(html) + '</body></html>');
     iframeDoc.close();
 };
 
