@@ -298,6 +298,27 @@
                 <h3 class="font-semibold text-gray-900 dark:text-white text-sm mb-1" data-i18n="cardHtml2pdf">HTML &rarr; PDF</h3>
                 <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="cardHtml2pdfDesc">HTML kodunu PDF dosyasına dönüştürün</p>
             </div>
+            <div class="tool-card cursor-pointer bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-navy-200 dark:hover:border-navy-400" onclick="openTool('reorderpages')">
+                <div class="w-11 h-11 rounded-xl bg-navy-50 flex items-center justify-center mb-3">
+                    <svg class="w-5.5 h-5.5 text-navy-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/><path d="M8.25 3v3.75m0 6.75V9.75m0 6.75V21"/></svg>
+                </div>
+                <h3 class="font-semibold text-gray-900 dark:text-white text-sm mb-1" data-i18n="cardReorderPages">Sayfaları Sırala</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="cardReorderPagesDesc">PDF sayfalarını sürükleyerek yeniden sıralayın</p>
+            </div>
+            <div class="tool-card cursor-pointer bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-navy-200 dark:hover:border-navy-400" onclick="openTool('croppdf')">
+                <div class="w-11 h-11 rounded-xl bg-navy-50 flex items-center justify-center mb-3">
+                    <svg class="w-5.5 h-5.5 text-navy-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6.75 3v2.25M17.25 3v2.25M6.75 21v-2.25M17.25 21v-2.25M3 6.75h2.25M3 17.25h2.25M21 6.75h-2.25M21 17.25h-2.25"/><rect x="6.75" y="6.75" width="10.5" height="10.5" rx="1"/></svg>
+                </div>
+                <h3 class="font-semibold text-gray-900 dark:text-white text-sm mb-1" data-i18n="cardCropPdf">PDF Kırp</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="cardCropPdfDesc">PDF sayfalarını kırparak boyutlandırın</p>
+            </div>
+            <div class="tool-card cursor-pointer bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-navy-200 dark:hover:border-navy-400" onclick="openTool('signpdf')">
+                <div class="w-11 h-11 rounded-xl bg-navy-50 flex items-center justify-center mb-3">
+                    <svg class="w-5.5 h-5.5 text-navy-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/></svg>
+                </div>
+                <h3 class="font-semibold text-gray-900 dark:text-white text-sm mb-1" data-i18n="cardSignPdf">PDF İmzala</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="cardSignPdfDesc">PDF'ye el yazısı veya metin imzası ekleyin</p>
+            </div>
         </div>
     </div>
 
@@ -648,6 +669,46 @@ var i18n = {
         convertingHtml: 'HTML dönüştürülüyor...',
         resultHtml2pdf: 'HTML \u2192 PDF dönüştürüldü',
         toastEmptyHtml: 'Lütfen HTML kodu girin',
+        // Reorder Pages
+        cardReorderPages: 'Sayfaları Sırala',
+        cardReorderPagesDesc: 'PDF sayfalarını sürükleyerek yeniden sıralayın',
+        toolReorderPagesTitle: 'Sayfaları Sırala',
+        toolReorderPagesDesc: 'PDF sayfalarını sürükle-bırak ile yeniden sıralayın.',
+        btnReorderPages: 'Sıralayıp İndir',
+        reorderingPages: 'Sayfalar sıralanıyor...',
+        resultReordered: 'Sayfalar yeniden sıralandı',
+        labelReorderHint: 'Sayfaları sürükleyip bırakarak sıralayın',
+        // Crop PDF
+        cardCropPdf: 'PDF Kırp',
+        cardCropPdfDesc: 'PDF sayfalarını kırparak boyutlandırın',
+        toolCropPdfTitle: 'PDF Kırp',
+        toolCropPdfDesc: 'PDF sayfalarını kenar boşluklarını ayarlayarak kırpın.',
+        btnCropPdf: 'Kırp ve İndir',
+        croppingPdf: 'Kırpılıyor...',
+        resultCropped: 'PDF kırpıldı',
+        labelCropTop: 'Üst (mm)',
+        labelCropBottom: 'Alt (mm)',
+        labelCropLeft: 'Sol (mm)',
+        labelCropRight: 'Sağ (mm)',
+        labelCropHint: 'Kırpma alanını sürükleyin veya kenar boşluklarını girin',
+        // Sign PDF
+        cardSignPdf: 'PDF İmzala',
+        cardSignPdfDesc: 'PDF\'ye el yazısı veya metin imzası ekleyin',
+        toolSignPdfTitle: 'PDF İmzala',
+        toolSignPdfDesc: 'PDF\'ye el yazısı çizerek veya metin yazarak imza ekleyin.',
+        btnSignPdf: 'İmzalı PDF İndir',
+        signingPdf: 'İmza ekleniyor...',
+        resultSigned: 'PDF imzalandı',
+        labelDrawSignature: 'İmzanızı çizin',
+        labelTextSignature: 'Metin ile imza',
+        labelSignPlaceHint: 'İmzayı yerleştirmek için sayfaya tıklayın',
+        btnClearSignature: 'Temizle',
+        labelPenColor: 'Kalem Rengi',
+        labelPenThickness: 'Kalem Kalınlığı',
+        labelSignText: 'İmza Metni',
+        tabDraw: 'Çizim',
+        tabText: 'Metin',
+        labelSignPlaced: 'İmza yerleştirildi. Kaydetmek için butona tıklayın.',
     },
     en: {
         // Page title
@@ -906,6 +967,46 @@ var i18n = {
         convertingHtml: 'Converting HTML...',
         resultHtml2pdf: 'HTML \u2192 PDF converted',
         toastEmptyHtml: 'Please enter HTML code',
+        // Reorder Pages
+        cardReorderPages: 'Reorder Pages',
+        cardReorderPagesDesc: 'Drag and drop to reorder PDF pages',
+        toolReorderPagesTitle: 'Reorder Pages',
+        toolReorderPagesDesc: 'Drag and drop to reorder PDF pages.',
+        btnReorderPages: 'Reorder & Download',
+        reorderingPages: 'Reordering pages...',
+        resultReordered: 'Pages reordered',
+        labelReorderHint: 'Drag and drop pages to reorder',
+        // Crop PDF
+        cardCropPdf: 'Crop PDF',
+        cardCropPdfDesc: 'Crop PDF pages by adjusting margins',
+        toolCropPdfTitle: 'Crop PDF',
+        toolCropPdfDesc: 'Crop PDF pages by adjusting margins.',
+        btnCropPdf: 'Crop & Download',
+        croppingPdf: 'Cropping...',
+        resultCropped: 'PDF cropped',
+        labelCropTop: 'Top (mm)',
+        labelCropBottom: 'Bottom (mm)',
+        labelCropLeft: 'Left (mm)',
+        labelCropRight: 'Right (mm)',
+        labelCropHint: 'Drag the crop area or enter margin values',
+        // Sign PDF
+        cardSignPdf: 'Sign PDF',
+        cardSignPdfDesc: 'Add a handwritten or text signature to PDF',
+        toolSignPdfTitle: 'Sign PDF',
+        toolSignPdfDesc: 'Add a handwritten or text signature to your PDF.',
+        btnSignPdf: 'Download Signed PDF',
+        signingPdf: 'Adding signature...',
+        resultSigned: 'PDF signed',
+        labelDrawSignature: 'Draw your signature',
+        labelTextSignature: 'Type signature',
+        labelSignPlaceHint: 'Click on the page to place the signature',
+        btnClearSignature: 'Clear',
+        labelPenColor: 'Pen Color',
+        labelPenThickness: 'Pen Thickness',
+        labelSignText: 'Signature Text',
+        tabDraw: 'Draw',
+        tabText: 'Text',
+        labelSignPlaced: 'Signature placed. Click the button to save.',
     }
 };
 
@@ -1092,6 +1193,9 @@ function openTool(id) {
         redactpdf: { titleKey: 'toolRedactPdfTitle', descKey: 'toolRedactPdfDesc', build: buildRedactPdf },
         repairpdf: { titleKey: 'toolRepairPdfTitle', descKey: 'toolRepairPdfDesc', build: buildRepairPdf },
         html2pdf: { titleKey: 'toolHtml2pdfTitle', descKey: 'toolHtml2pdfDesc', build: buildHtml2Pdf },
+        reorderpages: { titleKey: 'toolReorderPagesTitle', descKey: 'toolReorderPagesDesc', build: buildReorderPages },
+        croppdf: { titleKey: 'toolCropPdfTitle', descKey: 'toolCropPdfDesc', build: buildCropPdf },
+        signpdf: { titleKey: 'toolSignPdfTitle', descKey: 'toolSignPdfDesc', build: buildSignPdf },
     };
 
     var tl = tools[id];
@@ -3071,6 +3175,561 @@ function hexToRgb(hex) {
         parseInt(hex.substring(4, 6), 16) / 255
     );
 }
+
+// =============================================
+// Reorder Pages (Sayfaları Sırala)
+// =============================================
+function buildReorderPages(container) {
+    container.innerHTML = uploadZoneHTML('f_reord', '.pdf', t('labelSelectPdf')) +
+        '<div id="reordThumbs" class="hidden mt-6"><p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">' + t('labelReorderHint') + '</p><div id="reordGrid" class="grid grid-cols-3 sm:grid-cols-4 gap-4"></div></div>' +
+        actionBtnHTML('btn_reord', t('btnReorderPages'));
+    document.getElementById('f_reord').onchange = async function() {
+        var file = document.getElementById('f_reord').files[0];
+        if (!file) return;
+        if (!checkFileSize(file)) { clearInput('f_reord'); return; }
+        showFileInfo('f_reord');
+        var buf = await file.arrayBuffer();
+        if (!validatePdfMagic(buf)) { toast(t('toastInvalidPdf')); clearInput('f_reord'); return; }
+        DF._reordBuf = buf;
+        setProgress('f_reord', 30, t('readingPdf'));
+        try {
+            var pdf = await pdfjsLib.getDocument({ data: buf.slice(0) }).promise;
+            var grid = document.getElementById('reordGrid');
+            grid.innerHTML = '';
+            DF._reordOrder = [];
+            for (var i = 1; i <= pdf.numPages; i++) {
+                DF._reordOrder.push(i);
+                var page = await pdf.getPage(i);
+                var vp = page.getViewport({ scale: 0.3 });
+                var c = document.createElement('canvas');
+                c.width = vp.width; c.height = vp.height;
+                await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+                var dataUrl = c.toDataURL('image/png');
+                c.width = 0; c.height = 0;
+                var card = document.createElement('div');
+                card.className = 'relative bg-white dark:bg-gray-700 rounded-xl border-2 border-gray-200 dark:border-gray-600 p-2 cursor-grab select-none hover:border-navy-400 dark:hover:border-navy-400 transition';
+                card.setAttribute('draggable', 'true');
+                card.setAttribute('data-page', String(i));
+                card.innerHTML = '<img src="' + dataUrl + '" class="w-full rounded-lg pointer-events-none" draggable="false"><div class="absolute top-1 left-1 bg-navy-600 text-white text-xs font-bold px-2 py-0.5 rounded-lg">' + i + '</div>';
+                card.addEventListener('dragstart', reordDragStart);
+                card.addEventListener('dragover', reordDragOver);
+                card.addEventListener('drop', reordDrop);
+                card.addEventListener('dragend', reordDragEnd);
+                grid.appendChild(card);
+                setProgress('f_reord', 30 + Math.round((i / pdf.numPages) * 60), t('pageLabel') + i + '/' + pdf.numPages);
+            }
+            setProgress('f_reord', 100, t('completed'));
+            document.getElementById('reordThumbs').classList.remove('hidden');
+            document.getElementById('btn_reord').disabled = false;
+        } catch (e) {
+            console.error('Reorder preview error:', e);
+            toast(t('toastError'));
+        }
+    };
+    document.getElementById('btn_reord').onclick = async function() {
+        var file = document.getElementById('f_reord').files[0]; if (!file) return;
+        var btn = document.getElementById('btn_reord');
+        btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> ' + t('reorderingPages');
+        try {
+            var grid = document.getElementById('reordGrid');
+            var cards = grid.querySelectorAll('[data-page]');
+            var order = [];
+            cards.forEach(function(c) { order.push(parseInt(c.getAttribute('data-page')) - 1); });
+            var srcDoc = await PDFLib.PDFDocument.load(DF._reordBuf.slice(0));
+            var newDoc = await PDFLib.PDFDocument.create();
+            var copiedPages = await newDoc.copyPages(srcDoc, order);
+            copiedPages.forEach(function(p) { newDoc.addPage(p); });
+            setProgress('f_reord', 100, t('completed'));
+            var bytes = await newDoc.save();
+            var blob = new Blob([bytes], { type: 'application/pdf' });
+            var reordSuffix = _currentLang === 'en' ? '_reordered.pdf' : '_sıralanmış.pdf';
+            showResult(t('resultReordered') + ' (' + fmtSize(blob.size) + ')', blob, file.name.replace(/\.pdf$/i, '') + reordSuffix);
+        } catch (e) {
+            console.error('Reorder pages error:', e);
+            toast(t('toastError'));
+        }
+        btn.disabled = false; btn.innerHTML = t('btnReorderPages');
+    };
+}
+
+var _reordDragEl = null;
+function reordDragStart(e) {
+    _reordDragEl = this;
+    this.style.opacity = '0.4';
+    e.dataTransfer.effectAllowed = 'move';
+}
+function reordDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    this.classList.add('border-navy-500');
+}
+function reordDrop(e) {
+    e.preventDefault();
+    this.classList.remove('border-navy-500');
+    if (_reordDragEl !== this) {
+        var grid = document.getElementById('reordGrid');
+        var children = Array.from(grid.children);
+        var dragIdx = children.indexOf(_reordDragEl);
+        var dropIdx = children.indexOf(this);
+        if (dragIdx < dropIdx) {
+            grid.insertBefore(_reordDragEl, this.nextSibling);
+        } else {
+            grid.insertBefore(_reordDragEl, this);
+        }
+        // Update page number labels
+        var cards = grid.querySelectorAll('[data-page]');
+        cards.forEach(function(c, idx) {
+            var label = c.querySelector('.absolute');
+            if (label) label.textContent = String(idx + 1);
+        });
+    }
+}
+function reordDragEnd() {
+    this.style.opacity = '1';
+    var grid = document.getElementById('reordGrid');
+    grid.querySelectorAll('[data-page]').forEach(function(c) { c.classList.remove('border-navy-500'); });
+}
+
+// =============================================
+// Crop PDF (PDF Kırp)
+// =============================================
+function buildCropPdf(container) {
+    container.innerHTML = uploadZoneHTML('f_crop', '.pdf', t('labelSelectPdf')) +
+        '<div id="cropControls" class="hidden mt-6">' +
+            '<p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">' + t('labelCropHint') + '</p>' +
+            '<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">' +
+                '<div><label class="text-xs font-medium text-gray-600 dark:text-gray-400">' + t('labelCropTop') + '</label><input type="number" id="cropTop" value="0" min="0" step="1" class="mt-1 w-full px-3 py-2 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-xl focus:border-navy-400 outline-none text-sm"></div>' +
+                '<div><label class="text-xs font-medium text-gray-600 dark:text-gray-400">' + t('labelCropBottom') + '</label><input type="number" id="cropBottom" value="0" min="0" step="1" class="mt-1 w-full px-3 py-2 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-xl focus:border-navy-400 outline-none text-sm"></div>' +
+                '<div><label class="text-xs font-medium text-gray-600 dark:text-gray-400">' + t('labelCropLeft') + '</label><input type="number" id="cropLeft" value="0" min="0" step="1" class="mt-1 w-full px-3 py-2 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-xl focus:border-navy-400 outline-none text-sm"></div>' +
+                '<div><label class="text-xs font-medium text-gray-600 dark:text-gray-400">' + t('labelCropRight') + '</label><input type="number" id="cropRight" value="0" min="0" step="1" class="mt-1 w-full px-3 py-2 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-xl focus:border-navy-400 outline-none text-sm"></div>' +
+            '</div>' +
+            '<div id="cropPreviewWrap" class="relative inline-block mx-auto" style="display:flex;justify-content:center;">' +
+                '<canvas id="cropCanvas" class="rounded-lg shadow-lg"></canvas>' +
+                '<div id="cropRect" class="absolute border-2 border-dashed border-red-500" style="cursor:move;"></div>' +
+            '</div>' +
+        '</div>' +
+        actionBtnHTML('btn_crop', t('btnCropPdf'));
+    document.getElementById('f_crop').onchange = async function() {
+        var file = document.getElementById('f_crop').files[0];
+        if (!file) return;
+        if (!checkFileSize(file)) { clearInput('f_crop'); return; }
+        showFileInfo('f_crop');
+        var buf = await file.arrayBuffer();
+        if (!validatePdfMagic(buf)) { toast(t('toastInvalidPdf')); clearInput('f_crop'); return; }
+        DF._cropBuf = buf;
+        setProgress('f_crop', 50, t('readingPdf'));
+        try {
+            var pdf = await pdfjsLib.getDocument({ data: buf.slice(0) }).promise;
+            DF._cropPdf = pdf;
+            var page = await pdf.getPage(1);
+            var vp = page.getViewport({ scale: 1.0 });
+            // Scale canvas to fit 600px max width
+            var maxW = 600;
+            var scale = Math.min(maxW / vp.width, 1.0);
+            DF._cropScale = scale;
+            var svp = page.getViewport({ scale: scale });
+            var canvas = document.getElementById('cropCanvas');
+            canvas.width = svp.width; canvas.height = svp.height;
+            await page.render({ canvasContext: canvas.getContext('2d'), viewport: svp }).promise;
+            // Store original page dimensions in points
+            var origVp = page.getViewport({ scale: 1.0 });
+            DF._cropPageW = origVp.width;
+            DF._cropPageH = origVp.height;
+            // Init crop rect to full page
+            var rect = document.getElementById('cropRect');
+            rect.style.left = '0px';
+            rect.style.top = '0px';
+            rect.style.width = svp.width + 'px';
+            rect.style.height = svp.height + 'px';
+            DF._cropCanvasW = svp.width;
+            DF._cropCanvasH = svp.height;
+            // Setup input change handlers
+            ['cropTop','cropBottom','cropLeft','cropRight'].forEach(function(id) {
+                document.getElementById(id).oninput = function() { cropUpdateRectFromInputs(); };
+            });
+            // Setup drag on crop rect
+            cropInitDrag();
+            setProgress('f_crop', 100, t('completed'));
+            document.getElementById('cropControls').classList.remove('hidden');
+            document.getElementById('btn_crop').disabled = false;
+        } catch (e) {
+            console.error('Crop preview error:', e);
+            toast(t('toastPdfLoadFail'));
+        }
+    };
+    document.getElementById('btn_crop').onclick = async function() {
+        var file = document.getElementById('f_crop').files[0]; if (!file) return;
+        var btn = document.getElementById('btn_crop');
+        btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> ' + t('croppingPdf');
+        try {
+            var topMm = parseFloat(document.getElementById('cropTop').value) || 0;
+            var bottomMm = parseFloat(document.getElementById('cropBottom').value) || 0;
+            var leftMm = parseFloat(document.getElementById('cropLeft').value) || 0;
+            var rightMm = parseFloat(document.getElementById('cropRight').value) || 0;
+            // Convert mm to points (1mm = 2.83465pt)
+            var mmToPt = 2.83465;
+            var topPt = topMm * mmToPt, bottomPt = bottomMm * mmToPt, leftPt = leftMm * mmToPt, rightPt = rightMm * mmToPt;
+            var doc = await PDFLib.PDFDocument.load(DF._cropBuf.slice(0));
+            var pages = doc.getPages();
+            for (var i = 0; i < pages.length; i++) {
+                var pg = pages[i];
+                var mb = pg.getMediaBox();
+                // mb = { x, y, width, height }
+                var newX = mb.x + leftPt;
+                var newY = mb.y + bottomPt;
+                var newW = mb.width - leftPt - rightPt;
+                var newH = mb.height - topPt - bottomPt;
+                if (newW < 10 || newH < 10) continue; // Prevent degenerate page
+                pg.setCropBox(newX, newY, newW, newH);
+                pg.setMediaBox(newX, newY, newW, newH);
+            }
+            setProgress('f_crop', 100, t('completed'));
+            var bytes = await doc.save();
+            var blob = new Blob([bytes], { type: 'application/pdf' });
+            var cropSuffix = _currentLang === 'en' ? '_cropped.pdf' : '_kırpılmış.pdf';
+            showResult(t('resultCropped') + ' (' + fmtSize(blob.size) + ')', blob, file.name.replace(/\.pdf$/i, '') + cropSuffix);
+        } catch (e) {
+            console.error('Crop PDF error:', e);
+            toast(t('toastError'));
+        }
+        btn.disabled = false; btn.innerHTML = t('btnCropPdf');
+    };
+}
+
+function cropUpdateRectFromInputs() {
+    var topMm = parseFloat(document.getElementById('cropTop').value) || 0;
+    var bottomMm = parseFloat(document.getElementById('cropBottom').value) || 0;
+    var leftMm = parseFloat(document.getElementById('cropLeft').value) || 0;
+    var rightMm = parseFloat(document.getElementById('cropRight').value) || 0;
+    var mmToPt = 2.83465;
+    var scale = DF._cropScale;
+    var cW = DF._cropCanvasW, cH = DF._cropCanvasH;
+    var pW = DF._cropPageW, pH = DF._cropPageH;
+    var l = (leftMm * mmToPt / pW) * cW;
+    var t2 = (topMm * mmToPt / pH) * cH;
+    var r = (rightMm * mmToPt / pW) * cW;
+    var b = (bottomMm * mmToPt / pH) * cH;
+    var rect = document.getElementById('cropRect');
+    rect.style.left = Math.max(0, l) + 'px';
+    rect.style.top = Math.max(0, t2) + 'px';
+    rect.style.width = Math.max(10, cW - l - r) + 'px';
+    rect.style.height = Math.max(10, cH - t2 - b) + 'px';
+}
+
+function cropUpdateInputsFromRect() {
+    var rect = document.getElementById('cropRect');
+    var l = parseFloat(rect.style.left) || 0;
+    var tVal = parseFloat(rect.style.top) || 0;
+    var w = parseFloat(rect.style.width) || 0;
+    var h = parseFloat(rect.style.height) || 0;
+    var cW = DF._cropCanvasW, cH = DF._cropCanvasH;
+    var pW = DF._cropPageW, pH = DF._cropPageH;
+    var ptToMm = 1 / 2.83465;
+    document.getElementById('cropLeft').value = Math.round((l / cW) * pW * ptToMm);
+    document.getElementById('cropTop').value = Math.round((tVal / cH) * pH * ptToMm);
+    document.getElementById('cropRight').value = Math.round(((cW - l - w) / cW) * pW * ptToMm);
+    document.getElementById('cropBottom').value = Math.round(((cH - tVal - h) / cH) * pH * ptToMm);
+}
+
+function cropInitDrag() {
+    var rect = document.getElementById('cropRect');
+    var isDragging = false, isResizing = false;
+    var startX, startY, startL, startT, startW, startH, resizeEdge;
+    rect.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        var r = rect.getBoundingClientRect();
+        var ex = e.clientX - r.left, ey = e.clientY - r.top;
+        var edge = '';
+        if (ey < 10) edge += 'n';
+        if (ey > r.height - 10) edge += 's';
+        if (ex < 10) edge += 'w';
+        if (ex > r.width - 10) edge += 'e';
+        startX = e.clientX; startY = e.clientY;
+        startL = parseFloat(rect.style.left) || 0;
+        startT = parseFloat(rect.style.top) || 0;
+        startW = parseFloat(rect.style.width) || 0;
+        startH = parseFloat(rect.style.height) || 0;
+        if (edge) { isResizing = true; resizeEdge = edge; } else { isDragging = true; }
+    });
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging && !isResizing) return;
+        var dx = e.clientX - startX, dy = e.clientY - startY;
+        var cW = DF._cropCanvasW, cH = DF._cropCanvasH;
+        if (isDragging) {
+            var nl = Math.max(0, Math.min(cW - startW, startL + dx));
+            var nt = Math.max(0, Math.min(cH - startH, startT + dy));
+            rect.style.left = nl + 'px'; rect.style.top = nt + 'px';
+        } else if (isResizing) {
+            var nl2 = startL, nt2 = startT, nw = startW, nh = startH;
+            if (resizeEdge.indexOf('e') >= 0) nw = Math.max(20, Math.min(cW - startL, startW + dx));
+            if (resizeEdge.indexOf('w') >= 0) { nl2 = Math.max(0, Math.min(startL + startW - 20, startL + dx)); nw = startW - (nl2 - startL); }
+            if (resizeEdge.indexOf('s') >= 0) nh = Math.max(20, Math.min(cH - startT, startH + dy));
+            if (resizeEdge.indexOf('n') >= 0) { nt2 = Math.max(0, Math.min(startT + startH - 20, startT + dy)); nh = startH - (nt2 - startT); }
+            rect.style.left = nl2 + 'px'; rect.style.top = nt2 + 'px';
+            rect.style.width = nw + 'px'; rect.style.height = nh + 'px';
+        }
+        cropUpdateInputsFromRect();
+    });
+    document.addEventListener('mouseup', function() { isDragging = false; isResizing = false; });
+}
+
+// =============================================
+// Sign PDF (PDF İmzala)
+// =============================================
+function buildSignPdf(container) {
+    container.innerHTML = uploadZoneHTML('f_sign', '.pdf', t('labelSelectPdf')) +
+        '<div id="signControls" class="hidden mt-6">' +
+            '<div class="flex gap-2 mb-4">' +
+                '<button id="signTabDraw" class="flex-1 py-2.5 rounded-xl border-2 border-navy-500 bg-navy-50 text-navy-700 font-semibold text-sm transition" onclick="signSetTab(\'draw\')">' + t('tabDraw') + '</button>' +
+                '<button id="signTabText" class="flex-1 py-2.5 rounded-xl border-2 border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 font-semibold text-sm transition hover:border-gray-300" onclick="signSetTab(\'text\')">' + t('tabText') + '</button>' +
+            '</div>' +
+            '<div id="signDrawPanel">' +
+                '<p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">' + t('labelDrawSignature') + '</p>' +
+                '<div class="flex flex-wrap items-center gap-3 mb-3">' +
+                    '<label class="text-xs font-medium text-gray-600 dark:text-gray-400">' + t('labelPenColor') + '</label>' +
+                    '<input type="color" id="signPenColor" value="#000000" class="w-8 h-8 rounded cursor-pointer border-0">' +
+                    '<label class="text-xs font-medium text-gray-600 dark:text-gray-400 ml-2">' + t('labelPenThickness') + '</label>' +
+                    '<input type="range" id="signPenThick" min="1" max="8" value="2" class="w-24">' +
+                    '<button onclick="signClearCanvas()" class="ml-auto px-3 py-1.5 text-xs font-semibold text-red-600 border border-red-200 dark:border-red-700 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20">' + t('btnClearSignature') + '</button>' +
+                '</div>' +
+                '<canvas id="signCanvas" class="w-full border-2 border-gray-300 dark:border-gray-600 rounded-xl bg-white cursor-crosshair" style="height:150px;touch-action:none;"></canvas>' +
+            '</div>' +
+            '<div id="signTextPanel" class="hidden">' +
+                '<p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">' + t('labelTextSignature') + '</p>' +
+                '<div class="flex items-center gap-3 mb-3">' +
+                    '<label class="text-xs font-medium text-gray-600 dark:text-gray-400">' + t('labelSignText') + '</label>' +
+                    '<input type="text" id="signTextInput" placeholder="Ad Soyad" class="flex-1 px-3 py-2 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-xl focus:border-navy-400 outline-none text-sm" style="font-family:\'Dancing Script\',cursive,serif;font-size:24px;">' +
+                '</div>' +
+                '<canvas id="signTextCanvas" class="w-full border-2 border-gray-300 dark:border-gray-600 rounded-xl bg-white" style="height:100px;"></canvas>' +
+            '</div>' +
+            '<p class="text-sm text-gray-500 dark:text-gray-400 mt-4 mb-2">' + t('labelSignPlaceHint') + '</p>' +
+            '<div class="editor-page-nav">' +
+                '<button onclick="signPrevPage()" class="px-3 py-1.5 text-xs">' + t('edPrev') + '</button>' +
+                '<span id="signPageInfo" class="text-sm text-gray-600 dark:text-gray-400"></span>' +
+                '<button onclick="signNextPage()" class="px-3 py-1.5 text-xs">' + t('edNext') + '</button>' +
+            '</div>' +
+            '<div id="signPdfPreview" class="relative mx-auto mt-2 inline-block cursor-crosshair" style="display:flex;justify-content:center;">' +
+                '<canvas id="signPdfCanvas" class="rounded-lg shadow-lg"></canvas>' +
+                '<img id="signPlacedImg" class="absolute hidden pointer-events-none border-2 border-green-500 rounded" style="width:180px;">' +
+            '</div>' +
+            '<p id="signPlacedMsg" class="hidden text-sm text-green-600 dark:text-green-400 mt-2 text-center font-medium">' + t('labelSignPlaced') + '</p>' +
+        '</div>' +
+        actionBtnHTML('btn_sign', t('btnSignPdf'));
+
+    // Load a cursive Google font for text signatures
+    if (!document.getElementById('signFontLink')) {
+        var link = document.createElement('link');
+        link.id = 'signFontLink';
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap';
+        document.head.appendChild(link);
+    }
+
+    DF._signPageNum = 1;
+    DF._signPdf = null;
+    DF._signBuf = null;
+    DF._signPlaceX = null;
+    DF._signPlaceY = null;
+    DF._signTab = 'draw';
+
+    document.getElementById('f_sign').onchange = async function() {
+        var file = document.getElementById('f_sign').files[0];
+        if (!file) return;
+        if (!checkFileSize(file)) { clearInput('f_sign'); return; }
+        showFileInfo('f_sign');
+        var buf = await file.arrayBuffer();
+        if (!validatePdfMagic(buf)) { toast(t('toastInvalidPdf')); clearInput('f_sign'); return; }
+        DF._signBuf = buf;
+        setProgress('f_sign', 50, t('readingPdf'));
+        try {
+            var pdf = await pdfjsLib.getDocument({ data: buf.slice(0) }).promise;
+            DF._signPdf = pdf;
+            DF._signPageNum = 1;
+            await signRenderPage(1);
+            signInitDrawCanvas();
+            setProgress('f_sign', 100, t('completed'));
+            document.getElementById('signControls').classList.remove('hidden');
+        } catch (e) {
+            console.error('Sign PDF load error:', e);
+            toast(t('toastPdfLoadFail'));
+        }
+    };
+
+    document.getElementById('signTextInput') && (document.getElementById('signTextInput').oninput = function() {
+        signRenderTextSignature();
+    });
+
+    document.getElementById('btn_sign').onclick = async function() {
+        if (DF._signPlaceX === null) { toast(t('labelSignPlaceHint')); return; }
+        var file = document.getElementById('f_sign').files[0]; if (!file) return;
+        var btn = document.getElementById('btn_sign');
+        btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> ' + t('signingPdf');
+        try {
+            // Get signature image from the active canvas
+            var sigCanvas;
+            if (DF._signTab === 'draw') {
+                sigCanvas = document.getElementById('signCanvas');
+            } else {
+                sigCanvas = document.getElementById('signTextCanvas');
+            }
+            var sigDataUrl = sigCanvas.toDataURL('image/png');
+            var sigImgBytes = Uint8Array.from(atob(sigDataUrl.split(',')[1]), function(c) { return c.charCodeAt(0); });
+            var doc = await PDFLib.PDFDocument.load(DF._signBuf.slice(0));
+            var pngImage = await doc.embedPng(sigImgBytes);
+            var page = doc.getPages()[DF._signPageNum - 1];
+            var pageDims = page.getSize();
+            // Calculate position - map canvas coords to PDF coords
+            var pdfCanvas = document.getElementById('signPdfCanvas');
+            var scaleX = pageDims.width / pdfCanvas.width;
+            var scaleY = pageDims.height / pdfCanvas.height;
+            var sigDisplayW = 180; // matches CSS width
+            var sigAspect = pngImage.width / pngImage.height;
+            var sigPdfW = sigDisplayW * scaleX;
+            var sigPdfH = sigPdfW / sigAspect;
+            var pdfX = DF._signPlaceX * scaleX;
+            var pdfY = pageDims.height - (DF._signPlaceY * scaleY) - sigPdfH;
+            page.drawImage(pngImage, {
+                x: pdfX,
+                y: pdfY,
+                width: sigPdfW,
+                height: sigPdfH,
+            });
+            setProgress('f_sign', 100, t('completed'));
+            var bytes = await doc.save();
+            var blob = new Blob([bytes], { type: 'application/pdf' });
+            var signSuffix = _currentLang === 'en' ? '_signed.pdf' : '_imzalı.pdf';
+            showResult(t('resultSigned') + ' (' + fmtSize(blob.size) + ')', blob, file.name.replace(/\.pdf$/i, '') + signSuffix);
+        } catch (e) {
+            console.error('Sign PDF error:', e);
+            toast(t('toastError'));
+        }
+        btn.disabled = false; btn.innerHTML = t('btnSignPdf');
+    };
+}
+
+window.signSetTab = function(tab) {
+    DF._signTab = tab;
+    document.getElementById('signTabDraw').className = tab === 'draw'
+        ? 'flex-1 py-2.5 rounded-xl border-2 border-navy-500 bg-navy-50 text-navy-700 font-semibold text-sm transition'
+        : 'flex-1 py-2.5 rounded-xl border-2 border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 font-semibold text-sm transition hover:border-gray-300';
+    document.getElementById('signTabText').className = tab === 'text'
+        ? 'flex-1 py-2.5 rounded-xl border-2 border-navy-500 bg-navy-50 text-navy-700 font-semibold text-sm transition'
+        : 'flex-1 py-2.5 rounded-xl border-2 border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 font-semibold text-sm transition hover:border-gray-300';
+    document.getElementById('signDrawPanel').classList.toggle('hidden', tab !== 'draw');
+    document.getElementById('signTextPanel').classList.toggle('hidden', tab !== 'text');
+    if (tab === 'text') signRenderTextSignature();
+};
+
+function signInitDrawCanvas() {
+    var canvas = document.getElementById('signCanvas');
+    var rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width; canvas.height = rect.height;
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    var drawing = false;
+    var lastX, lastY;
+    function getPos(e) {
+        var r = canvas.getBoundingClientRect();
+        var touch = e.touches ? e.touches[0] : e;
+        return { x: touch.clientX - r.left, y: touch.clientY - r.top };
+    }
+    function startDraw(e) {
+        e.preventDefault();
+        drawing = true;
+        var p = getPos(e);
+        lastX = p.x; lastY = p.y;
+    }
+    function moveDraw(e) {
+        if (!drawing) return;
+        e.preventDefault();
+        var p = getPos(e);
+        ctx.strokeStyle = document.getElementById('signPenColor').value;
+        ctx.lineWidth = parseInt(document.getElementById('signPenThick').value);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+        lastX = p.x; lastY = p.y;
+    }
+    function endDraw() {
+        drawing = false;
+        // Enable save button when something is drawn
+        if (DF._signPlaceX !== null) document.getElementById('btn_sign').disabled = false;
+    }
+    canvas.addEventListener('mousedown', startDraw);
+    canvas.addEventListener('mousemove', moveDraw);
+    canvas.addEventListener('mouseup', endDraw);
+    canvas.addEventListener('mouseleave', endDraw);
+    canvas.addEventListener('touchstart', startDraw, { passive: false });
+    canvas.addEventListener('touchmove', moveDraw, { passive: false });
+    canvas.addEventListener('touchend', endDraw);
+}
+
+window.signClearCanvas = function() {
+    var canvas = document.getElementById('signCanvas');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+};
+
+function signRenderTextSignature() {
+    var text = document.getElementById('signTextInput').value || '';
+    var canvas = document.getElementById('signTextCanvas');
+    var rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width; canvas.height = rect.height;
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (text.trim()) {
+        ctx.font = '36px "Dancing Script", cursive, serif';
+        ctx.fillStyle = '#000000';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(text, 20, canvas.height / 2);
+        if (DF._signPlaceX !== null) document.getElementById('btn_sign').disabled = false;
+    }
+}
+
+async function signRenderPage(num) {
+    DF._signPageNum = num;
+    var page = await DF._signPdf.getPage(num);
+    var maxW = 600;
+    var vp = page.getViewport({ scale: 1.0 });
+    var scale = Math.min(maxW / vp.width, 1.0);
+    var svp = page.getViewport({ scale: scale });
+    var canvas = document.getElementById('signPdfCanvas');
+    canvas.width = svp.width; canvas.height = svp.height;
+    await page.render({ canvasContext: canvas.getContext('2d'), viewport: svp }).promise;
+    document.getElementById('signPageInfo').textContent = t('edPage') + ' ' + num + ' / ' + DF._signPdf.numPages;
+    // Reset placement
+    DF._signPlaceX = null; DF._signPlaceY = null;
+    document.getElementById('signPlacedImg').classList.add('hidden');
+    document.getElementById('signPlacedMsg').classList.add('hidden');
+    document.getElementById('btn_sign').disabled = true;
+    // Click to place
+    canvas.onclick = function(e) {
+        var r = canvas.getBoundingClientRect();
+        DF._signPlaceX = e.clientX - r.left;
+        DF._signPlaceY = e.clientY - r.top;
+        var img = document.getElementById('signPlacedImg');
+        var sigCanvas = DF._signTab === 'draw' ? document.getElementById('signCanvas') : document.getElementById('signTextCanvas');
+        img.src = sigCanvas.toDataURL('image/png');
+        img.style.left = DF._signPlaceX + 'px';
+        img.style.top = DF._signPlaceY + 'px';
+        img.classList.remove('hidden');
+        document.getElementById('signPlacedMsg').classList.remove('hidden');
+        document.getElementById('btn_sign').disabled = false;
+    };
+}
+
+window.signPrevPage = async function() {
+    if (DF._signPageNum > 1) await signRenderPage(DF._signPageNum - 1);
+};
+window.signNextPage = async function() {
+    if (DF._signPdf && DF._signPageNum < DF._signPdf.numPages) await signRenderPage(DF._signPageNum + 1);
+};
 </script>
 </body>
 </html>
